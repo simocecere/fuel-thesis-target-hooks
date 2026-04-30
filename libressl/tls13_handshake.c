@@ -50,8 +50,6 @@ fuel_fuzz_handshake_msg(struct tls13_ctx *ctx)
 }
 #endif
 
-/* Based on RFC 8446 and inspired by s2n's TLS 1.2 state machine. */
-
 struct tls13_handshake_action {
 	uint8_t	handshake_type;
 	uint8_t	sender;
