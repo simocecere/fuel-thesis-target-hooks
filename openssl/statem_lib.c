@@ -301,11 +301,7 @@ int tls_close_construct_packet(SSL *s, WPACKET *pkt, int htype)
     s->init_off = 0;
 
 #ifdef FUEL_FUZZ
-    /*
-     * FuEL expects logical handshake messages, not aggregated handshake
-     * records. Hook at packet construction time so each client-side
-     * handshake message can be fuzzed independently before record framing.
-     */
+  
     if (!s->server && htype != SSL3_MT_CHANGE_CIPHER_SPEC) {
         struct shared_buffer shbuf;
 
